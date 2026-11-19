@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: joias-convert
+    runtime: docker
+    plan: free
+    region: ohio
+    healthCheckPath: /
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
