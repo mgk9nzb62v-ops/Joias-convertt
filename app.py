@@ -49,7 +49,7 @@ def upload_convert(file: UploadFile = File(...), bitrate: str = Form('192k')):
     src.write_bytes(data)
     mp3 = convert_to_mp3(src, bitrate)
     src.unlink(missing_ok=True)
-    return FileResponse(mp3, media_type='audio/mpeg', filename=(Path(file.filename or 'audio').stem + '.mp3')
+    return FileResponse(mp3, media_type='audio/mpeg', filename=(Path(file.filename or 'audio').stem + '.mp3'))
 
 @app.post('/convert-url')
 def url_convert(url: str = Form(...), bitrate: str = Form('192k')):
